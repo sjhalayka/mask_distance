@@ -50,7 +50,7 @@ int main(void)
 
 			if (colour == 255)
 			{
-				floodFill(flt_frame, Point(i, j), Scalar(fill_colour));
+				floodFill(flt_frame, Point2i(i, j), Scalar(fill_colour));
 
 				section_count++;
 				fill_colour++;
@@ -93,7 +93,7 @@ int main(void)
 	Mat output(flt_frame.rows, flt_frame.cols, CV_8UC3);
 
 	int centres_index = 0;
-	vector< vector< Point > > centres;
+	vector< vector< Point2i > > centres;
 	centres.resize(sorted_section_sizes.size());
 
 	// For each section in flt_frame
@@ -113,7 +113,7 @@ int main(void)
 					output.at<Vec3b>(j, i)[1] = 0;
 					output.at<Vec3b>(j, i)[2] = 255;
 
-					Point p;
+					Point2i p;
 					p.x = i;
 					p.y = j;
 
@@ -126,7 +126,7 @@ int main(void)
 	}
 
 	// Get average centre per section.
-	vector<Point> avg_centres;
+	vector<Point2i> avg_centres;
 	avg_centres.resize(centres.size());
 
 	// Consider only the two largest sections
