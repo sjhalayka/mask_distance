@@ -162,7 +162,7 @@ int main(void)
 
 	cout << "Distance (in pixels): " << distance << endl;
 
-	line(output, Point2i(first_centre.x, first_centre.y), Point2i(second_centre.x, second_centre.y), Scalar(255, 0, 0), 1);
+	line(output, first_centre, second_centre, Scalar(255, 0, 0), 1);
 
 	imshow("output", output);
 
