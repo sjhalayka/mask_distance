@@ -129,8 +129,12 @@ int main(void)
 	vector<Point2i> avg_centres;
 	avg_centres.resize(centres.size());
 
+	bool set_first_centre = false;
+	Point2i first_centre;
+	Point2i second_centre;
+
 	// Consider only the two largest sections
-	for (int i = avg_centres.size() - 2; i < avg_centres.size(); i++)
+	for (size_t i = avg_centres.size() - 2; i < avg_centres.size(); i++)
 	{
 		// Get sum
 		for (int j = 0; j < centres[i].size(); j++)
@@ -139,10 +143,30 @@ int main(void)
 		// Get average
 		avg_centres[i] /= static_cast<float>(centres[i].size());
 
+		if (false == set_first_centre)
+		{
+			first_centre = avg_centres[i];
+			set_first_centre = true;
+		}
+		else
+		{
+			second_centre = avg_centres[i];
+		}
+
+
 		circle(output, avg_centres[i], 4, Scalar(255, 255, 255), FILLED, LINE_8);
 	}
 
 	imshow("output", output);
+
+	cout << first_centre.x << ' ' << first_centre.y << endl;
+	cout << second_centre.x << ' ' << second_centre.y << endl;
+	cout << endl;
+
+	Point2i difference = first_centre - second_centre;
+	double distance = sqrt(difference.ddot(difference));
+
+	cout << "Distance (in pixels): " << distance << endl;
 
 	waitKey();
 
