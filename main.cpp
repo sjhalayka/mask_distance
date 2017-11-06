@@ -102,7 +102,7 @@ int main(void)
 	vector< vector< Point > > centres;
 	centres.resize(sorted_section_sizes.size());
 
-	// For each section in flt_canny
+	// For each section in flt_frame
 	for (multiset<float_int_pair>::const_iterator ci = sorted_section_sizes.begin(); ci != sorted_section_sizes.end(); ci++)
 	{
 		// Iterate throughout the whole image
