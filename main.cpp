@@ -157,16 +157,14 @@ int main(void)
 		circle(output, avg_centres[i], 4, Scalar(255, 255, 255), FILLED, LINE_8);
 	}
 
-	imshow("output", output);
-
-	cout << first_centre.x << ' ' << first_centre.y << endl;
-	cout << second_centre.x << ' ' << second_centre.y << endl;
-	cout << endl;
-
 	Point2i difference = first_centre - second_centre;
 	double distance = sqrt(difference.ddot(difference));
 
 	cout << "Distance (in pixels): " << distance << endl;
+
+	line(output, Point2i(first_centre.x, first_centre.y), Point2i(second_centre.x, second_centre.y), Scalar(255, 0, 0), 1);
+
+	imshow("output", output);
 
 	waitKey();
 
