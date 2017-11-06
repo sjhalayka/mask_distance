@@ -92,10 +92,6 @@ int main(void)
 
 	Mat output(flt_frame.rows, flt_frame.cols, CV_8UC3);
 
-	// Get the largest section size
-	int largest_section_size = sorted_section_sizes.rbegin()->b;
-
-	// Keep track of all the depth measurements per section.
 	int centres_index = 0;
 	vector< vector< Point > > centres;
 	centres.resize(sorted_section_sizes.size());
