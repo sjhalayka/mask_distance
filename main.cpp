@@ -136,6 +136,7 @@ int main(void)
 	vector<Point> avg_centres;
 	avg_centres.resize(centres.size());
 
+	// Consider only the two largest sections
 	for (int i = avg_centres.size() - 2; i < avg_centres.size(); i++)
 	{
 		// Get sum
