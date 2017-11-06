@@ -75,9 +75,10 @@ int main(void)
 	cout << section_sizes.size() << endl;
 
 	// No sections (the image was all white)
-	if (section_sizes.size() != 2)
+	if (section_sizes.size() < 2)
 	{
-		cout << "Warning: section count is not 2." << endl;
+		cout << "Error: section count is not 2 or higher." << endl;
+		return 0;
 	}
 
 	// Sort the section sizes in ascending order
@@ -135,7 +136,7 @@ int main(void)
 	vector<Point> avg_centres;
 	avg_centres.resize(centres.size());
 
-	for (int i = 0; i < avg_centres.size(); i++)
+	for (int i = avg_centres.size() - 2; i < avg_centres.size(); i++)
 	{
 		// Get sum
 		for (int j = 0; j < centres[i].size(); j++)
