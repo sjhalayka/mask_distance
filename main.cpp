@@ -72,9 +72,6 @@ int main(void)
 		}
 	}
 
-	cout << section_sizes.size() << endl;
-
-	// No sections (the image was all white)
 	if (section_sizes.size() < 2)
 	{
 		cout << "Error: section count is not 2 or higher." << endl;
