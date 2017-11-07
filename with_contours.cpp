@@ -50,13 +50,11 @@ int main(void)
 		return 0;
 	}
 
-	RNG rng(12345);
-
 	/// Draw contours
 	Mat output = Mat::zeros(flt_frame.size(), CV_8UC3);
 
 	for (int i = 0; i < contours.size(); i++)
-		drawContours(output, contours, i, Scalar(255, 127, 0), 1, 8, hierarchy, 0, Point());
+		drawContours(output, contours, i, Scalar(0, 127, 255), 1, 8, hierarchy, 0, Point());
 
 	vector<double> areas(contours.size());
 
