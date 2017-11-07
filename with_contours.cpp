@@ -104,7 +104,6 @@ int main(void)
 
 	line(output, first_centre, second_centre, Scalar(255, 127, 0), 2);
 
-
 	imshow("f2", output);
 
 	waitKey();
