@@ -10,7 +10,7 @@ using namespace std;
 
 
 // For later use with multiset
-class double_double_pair
+class double_point2f_pair
 {
 public:
 	double area;
@@ -18,7 +18,7 @@ public:
 };
 
 // For later use with multiset
-bool operator<(const double_double_pair &lhs, const double_double_pair &rhs)
+bool operator<(const double_point2f_pair &lhs, const double_point2f_pair &rhs)
 {
 	return lhs.area < rhs.area;
 }
@@ -74,11 +74,11 @@ int main(void)
 		mass_centres[i] = Point2d(mu.m10 / mu.m00, mu.m01 / mu.m00);
 	}
 
-	multiset<double_double_pair> ddp_set;
+	multiset<double_point2f_pair> ddp_set;
 
 	for (int i = 0; i < contours.size(); i++)
 	{
-		double_double_pair ddp;
+		double_point2f_pair ddp;
 		ddp.area = areas[i];
 		ddp.centre = mass_centres[i];
 		ddp_set.insert(ddp);
@@ -88,7 +88,7 @@ int main(void)
 	Point2d first_centre, second_centre;
 
 	// Get the two largest contour areas
-	for (multiset<double_double_pair>::const_reverse_iterator cri = ddp_set.rbegin(); cri != ddp_set.rend(); cri++)
+	for (multiset<double_point2f_pair>::const_reverse_iterator cri = ddp_set.rbegin(); cri != ddp_set.rend(); cri++)
 	{
 		if (count == 0)
 		{
