@@ -102,7 +102,7 @@ int main(void)
 
 	cout << "Distance (in pixels): " << distance << endl;
 
-	line(output, first_centre, second_centre, Scalar(255, 0, 0), 1);
+	line(output, first_centre, second_centre, Scalar(255, 127, 0), 2);
 
 
 	imshow("f2", output);
