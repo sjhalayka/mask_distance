@@ -97,7 +97,7 @@ int main(void)
 		}
 	}
 
-	Point2f difference = first_centre - second_centre;
+	Point2d difference = first_centre - second_centre;
 	double distance = sqrt(difference.ddot(difference));
 
 	cout << "Distance (in pixels): " << distance << endl;
