@@ -56,10 +56,7 @@ int main(void)
 	Mat output = Mat::zeros(flt_frame.size(), CV_8UC3);
 
 	for (int i = 0; i < contours.size(); i++)
-	{
-		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-		drawContours(output, contours, i, color, 1, 8, hierarchy, 0, Point());
-	}
+		drawContours(output, contours, i, Scalar(255, 127, 0), 1, 8, hierarchy, 0, Point());
 
 	vector<double> areas(contours.size());
 
@@ -70,7 +67,7 @@ int main(void)
 
 	for (int i = 0; i < contours.size(); i++)
 	{
-		Moments mu = moments(contours[i], false);
+		const Moments mu = moments(contours[i], false);
 		mass_centres[i] = Point2d(mu.m10 / mu.m00, mu.m01 / mu.m00);
 	}
 
@@ -84,7 +81,7 @@ int main(void)
 		dpp_set.insert(dpp);
 	}
 
-	size_t count = 0;
+	int count = 0;
 	Point2d first_centre, second_centre;
 
 	// Get the two largest contour areas
