@@ -74,21 +74,21 @@ int main(void)
 		mass_centres[i] = Point2d(mu.m10 / mu.m00, mu.m01 / mu.m00);
 	}
 
-	multiset<double_point2f_pair> ddp_set;
+	multiset<double_point2f_pair> dpp_set;
 
 	for (int i = 0; i < contours.size(); i++)
 	{
-		double_point2f_pair ddp;
-		ddp.area = areas[i];
-		ddp.centre = mass_centres[i];
-		ddp_set.insert(ddp);
+		double_point2f_pair dpp;
+		dpp.area = areas[i];
+		dpp.centre = mass_centres[i];
+		dpp_set.insert(dpp);
 	}
 
 	size_t count = 0;
 	Point2d first_centre, second_centre;
 
 	// Get the two largest contour areas
-	for (multiset<double_point2f_pair>::const_reverse_iterator cri = ddp_set.rbegin(); cri != ddp_set.rend(); cri++)
+	for (multiset<double_point2f_pair>::const_reverse_iterator cri = dpp_set.rbegin(); cri != dpp_set.rend(); cri++)
 	{
 		if (count == 0)
 		{
