@@ -50,7 +50,7 @@ int main(void)
 		return 0;
 	}
 
-	/// Draw contours
+
 	Mat output = Mat::zeros(flt_frame.size(), CV_8UC3);
 
 	for (int i = 0; i < contours.size(); i++)
